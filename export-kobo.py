@@ -174,6 +174,7 @@ class Item(object):
         self.booktitle = values[6]
         self.title = values[7]
         self.author = values[8]
+        self.bookmark_id = values[9]
         self.kind = self.BOOKMARK
         if (self.text is not None) and (self.text != "") and (self.annotation is not None) and (self.annotation != ""):
             self.kind = self.ANNOTATION
@@ -349,7 +350,8 @@ class ExportKobo(CommandLineTool):
         "Bookmark.DateModified, "
         "content.BookTitle, "
         "content.Title, "
-        "content.Attribution "
+        "content.Attribution, "
+        "Bookmark.BookmarkID "
         "FROM Bookmark INNER JOIN content "
         "ON Bookmark.VolumeID = content.ContentID;"
     )
